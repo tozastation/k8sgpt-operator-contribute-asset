@@ -1,0 +1,21 @@
+apiVersion: core.k8sgpt.ai/v1alpha1
+kind: K8sGPT
+metadata:
+  name: k8sgpt
+  namespace: default
+spec:
+  ai:
+    enabled: false
+    model: gpt-3.5-turbo
+    backend: openai
+    secret:
+      name: k8sgpt-sample-secret
+      key: openai-api-key
+  noCache: false
+  repository: ghcr.io/k8sgpt-ai/k8sgpt
+  version: v0.3.8
+  sink:
+    type: mattermost
+    webhook: http://mattermost-team-edition.mattermost.svc.cluster.local:8065/hooks/ksuysouuspystfuz71cpgk5ehh
+    username: k8sgpt
+    icon_url: https://raw.githubusercontent.com/AlexsJones/artwork/master/projects/k8sgpt/icon/color/k8sgpt-icon-color.png

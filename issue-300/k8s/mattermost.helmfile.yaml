@@ -1,0 +1,18 @@
+releases:
+  - name: mattermost
+    namespace: mattermost
+    chart: ./custom-charts/mattermost-team-edition
+    version: 6.6.45
+    values:
+      - persistence:
+          data:
+            enabled: false
+          plugins:
+            enabled: false
+        mysql:
+          enabled: true
+          mysqlRootPassword: password
+          mysqlUser: mattermost
+          mysqlPassword: password
+          persistence:
+            enabled: false
